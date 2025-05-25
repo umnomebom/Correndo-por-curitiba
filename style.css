@@ -1,0 +1,264 @@
+/* Reset básico para remover margens e preenchimentos padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Faz com que padding e border não aumentem o tamanho total do elemento */
+}
+
+/* Variáveis CSS para Cores e Espaçamento (facilita a manutenção) */
+:root {
+  --cor-primaria: #007bff; /* Azul vibrante, ideal para links e botões */
+  --cor-1-5: #49a1ff; /* Azul não tão vibrante */
+  --cor-secundaria: #6c757d; /* Cinza médio para detalhes e texto secundário */
+  --cor-fundo-claro: #f8f9fa; /* Branco off-white para o fundo da página */
+  --cor-fundo-escuro: #343a40; /* Cinza escuro para cabeçalho/rodapé */
+  --cor-texto-principal: #333; /* Cinza escuro para o texto principal */
+  --cor-borda: #dee2e6; /* Cinza claro para bordas e separadores */
+
+  --espacamento-padrao: 20px;
+  --borda-radius-padrao: 8px;
+  --transicao-padrao: all 0.3s ease-in-out; /* Transição suave para efeitos de hover */
+}
+
+/* Estilos gerais para o corpo da página */
+body {
+  font-family: "Roboto", sans-serif; /* Usando uma fonte do Google Fonts */
+  line-height: 1.7; /* Altura da linha ligeiramente maior para melhor leitura */
+  color: var(--cor-texto-principal);
+  background-color: var(--cor-fundo-claro);
+  padding: 0; /* Remove padding do body para que header e footer ocupem a largura total */
+  display: flex; /* Usado para centralizar o main e empurrar o footer para baixo */
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o body ocupe toda a altura da viewport */
+  
+}
+
+.container {
+  position: sticky;
+  top: 0; /* Fixa a nav no topo ao rolar */
+  z-index: 1000;
+}
+
+/* Estilos para o cabeçalho */
+header {
+  background-color: var(--cor-fundo-escuro);
+  color: #fff;
+  padding: var(--espacamento-padrao) 0;
+  text-align: center;
+  margin-bottom: 0; /* Remove margem inferior para grudar na nav */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais visível */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em; /* Tamanho maior para o título principal */
+  letter-spacing: 1px; /* Espaçamento entre letras para destaque */
+  padding: 0 15px; /* Adiciona um pouco de padding lateral para telas menores */
+}
+
+/* Estilos para a navegação */
+nav {
+  background-color: #eee;
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 15px 0;
+  text-align: center;
+  /* margin-bottom: var(--espacamento-padrao); Margem para separar da main */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+nav .botao {
+  /* Usando a classe .botao que já existia nos links */
+  display: inline-block;
+  padding: 10px 15px;
+  /* margin: 0 8px; Espaçamento entre os botões */
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: var(--transicao-padrao);
+  background-color: transparent; /* Inicialmente transparente */
+  border: 2px solid var(--cor-primaria);
+}
+
+nav .botao:hover {
+  background-color: var(--cor-primaria);
+  color: white;
+  transform: translateY(-2px); /* Pequeno efeito de elevação no hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.botao.active {
+  background-color: var(--cor-1-5);
+  color: white;
+  transform: translateY(-2px); /* Pequeno efeito de elevação no hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o conteúdo principal e seções */
+main {
+  max-width: 900px; /* Aumentado ligeiramente a largura máxima */
+  margin: 0 auto; /* Centraliza o conteúdo principal na página */
+  background-color: #fff;
+  padding: var(--espacamento-padrao) 30px; /* Espaçamento interno maior nos lados */
+  border-radius: var(--borda-radius-padrao);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais suave e elegante */
+  flex-grow: 1; /* Faz com que o main ocupe o espaço restante na coluna */
+  margin-bottom: var(--espacamento-padrao); /* Adiciona margem antes do footer */
+}
+
+section {
+  margin-bottom: var(--espacamento-padrao) * 1.5; /* Margem inferior maior para separar as seções */
+  padding-bottom: var(--espacamento-padrao);
+  border-bottom: 1px dashed var(--cor-borda); /* Linha tracejada para separar seções */
+}
+
+section:last-of-type {
+  border-bottom: none; /* Remove a borda da última seção */
+}
+
+section h2 {
+  color: var(--cor-primaria); /* Cor principal para os títulos das seções */
+  margin-bottom: 15px;
+  font-size: 2.2em; /* Títulos de seção maiores */
+  border-left: 5px solid var(--cor-primaria); /* Detalhe na lateral do título */
+  padding-left: 10px;
+  text-transform: uppercase; /* Títulos em maiúsculas */
+  letter-spacing: 0.5px;
+}
+
+section h3 {
+  color: #555; /* Cor para subtítulos */
+  margin-top: var(--espacamento-padrao);
+  margin-bottom: 10px;
+  font-size: 1.6em;
+}
+
+section p {
+  text-indent: 2em; /* Espaço antes do inicio do texto do parágrafo */
+  margin-bottom: 1em; /* Espaçamento entre parágrafos (Top superior, bottom inferior)*/
+  text-align: justify; /* Justifica o texto */
+}
+
+section ul {
+  list-style: none; /* Remove o marcador padrão da lista */
+  padding-left: 0;
+  margin-bottom: 1em;
+}
+
+section ul li {
+  padding-left: 25px; /* Espaço para o ícone customizado */
+  position: relative;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+section ul li::before {
+  content: "🏃"; /* Ícone de corrida como marcador de lista */
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+  font-size: 1.2em;
+  top: -2px;
+}
+
+/* Não há imagem de exemplo ou botão de mudar texto no HTML fornecido, então removi os estilos específicos */
+/* Se você adicionar um, pode usar classes genéricas para eles */
+
+/* Estilos para o rodapé */
+footer {
+  text-align: center;
+  margin-top: 0; /* Ajusta para ficar no final da página */
+  padding: var(--espacamento-padrao);
+  font-size: 0.9em;
+  color: #fff;
+  background-color: var(--cor-fundo-escuro);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Garante que o footer ocupe toda a largura */
+}
+
+section > img {
+  margin: 0 auto; /* Centraliza a imagem */
+  display: block; /* Faz a imagem ser um bloco */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  nav .botao {
+    margin: 0 5px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  main {
+    padding: var(--espacamento-padrao);
+    margin: var(--espacamento-padrao) auto; /* Adiciona margem acima e abaixo no mobile */
+  }
+
+  section h2 {
+    font-size: 1.8em;
+  }
+
+  section h3 {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6em;
+    word-break: break-word; /* Quebra palavras longas se necessário */
+  }
+
+  nav {
+    padding: 10px 0;
+  }
+
+  nav .botao {
+    display: block; /* Links de navegação em bloco em telas menores */
+    margin: 8px auto; /* Centraliza botões e adiciona mais espaçamento vertical */
+    width: 90%; /* Ocupa quase toda a largura */
+    font-size: 16px;
+  }
+
+  main {
+    padding: 15px; /* Menos padding em telas muito pequenas */
+  }
+
+  section h2 {
+    font-size: 1.5em;
+  }
+
+  section h3 {
+    font-size: 1.2em;
+  }
+}
+.mapa-curitiba {
+  border: 5px solid #797c7e; /* Borda sólida de 5 pixels na cor azul */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  box-shadow: 5px 5px 15px rgba(105, 102, 102, 0.2); /* Adiciona uma leve sombra */
+  width: 100%; /* A imagem ocupará 100% da largura do .container-com-margem */
+}
+.container-com-margem {
+    width: 80%; /* Ocupa 80% da largura da tela ou do seu pai */
+    margin: 20px auto; /* Centraliza e adiciona margem superior/inferior */
+    border: 1px solid blue; /* Para visualizar o contêiner */
+}
+
+.imagem-ajustavel {
+    width: 100%; /* A imagem ocupará 100% da largura do .container-com-margem */
+    height: auto; /* Mantém a proporção */
+    display: block; /* Remove o espaço extra abaixo da imagem */
+}
