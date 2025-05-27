@@ -185,66 +185,6 @@ section > img {
   display: block; /* Faz a imagem ser um bloco */
 }
 
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-  body {
-    padding: 0;
-    
-  }
-
-  header h1 {
-    font-size: 2em;
-  }
-
-  nav .botao {
-    margin: 0 5px;
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  main {
-    padding: var(--espacamento-padrao);
-    margin: var(--espacamento-padrao) auto; /* Adiciona margem acima e abaixo no mobile */
-  }
-
-  section h2 {
-    font-size: 1.8em;
-  }
-
-  section h3 {
-    font-size: 1.4em;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 1.6em;
-    word-break: break-word; /* Quebra palavras longas se necessário */
-  }
-
-  nav {
-    padding: 10px 0;
-  }
-
-  nav .botao {
-    display: block; /* Links de navegação em bloco em telas menores */
-    margin: 8px auto; /* Centraliza botões e adiciona mais espaçamento vertical */
-    width: 90%; /* Ocupa quase toda a largura */
-    font-size: 16px;
-  }
-
-  main {
-    padding: 15px; /* Menos padding em telas muito pequenas */
-  }
-
-  section h2 {
-    font-size: 1.5em;
-  }
-
-  section h3 {
-    font-size: 1.2em;
-  }
-}
 .mapa-curitiba {
   border: 5px solid #797c7e; /* Borda sólida de 5 pixels na cor azul */
   border-radius: 10px; /* Adiciona bordas arredondadas */
@@ -252,7 +192,7 @@ section > img {
   width: 100%; /* A imagem ocupará 100% da largura do .container-com-margem */
 }
 .container-com-margem {
-    width: 80%; /* Ocupa 80% da largura da tela ou do seu pai */
+    width: 80%; /* Ocupa 80% da largura da tela ou do seu painel */
     margin: 20px auto; /* Centraliza e adiciona margem superior/inferior */
     border: 1px solid blue; /* Para visualizar o contêiner */
 }
@@ -261,4 +201,96 @@ section > img {
     width: 100%; /* A imagem ocupará 100% da largura do .container-com-margem */
     height: auto; /* Mantém a proporção */
     display: block; /* Remove o espaço extra abaixo da imagem */
+}
+
+
+/* Telas de tablet e mobile (até 768px de largura) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Reduz o tamanho da fonte base do corpo */
+  }
+
+  /* Ajusta o título do cabeçalho */
+  header h1 {
+    font-size: 1.8em; /* Tamanho do título um pouco menor */
+    padding: 0 10px; /* Reduz o padding lateral */
+  }
+
+  /* Navegação e botões */
+  nav {
+    padding: 10px 0; /* Reduz o padding vertical da navegação */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    gap: 5px; /* Reduz o espaçamento entre os botões */
+  }
+
+  nav .botao {
+    padding: 8px 12px; /* Reduz o padding dos botões */
+    font-size: 0.9em; /* Reduz o tamanho da fonte dos botões */
+    margin: 4px; /* Adiciona um pouco de margem para separar melhor */
+  }
+
+  /* Conteúdo principal */
+  main {
+    padding: var(--espacamento-padrao) 15px; /* Reduz o padding lateral do main */
+    margin: var(--espacamento-padrao) 10px; /* Ajusta margem lateral */
+  }
+
+  /* Títulos de seção */
+  section h2 {
+    font-size: 1.8em; /* Títulos de seção menores */
+  }
+
+  section h3 {
+    font-size: 1.4em; /* Subtítulos menores */
+  }
+}
+
+/* Telas de smartphones (até 480px de largura) */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px; /* Fonte ainda menor para telas muito pequenas */
+  }
+
+  header {
+    padding: 15px 0; /* Reduz o padding do cabeçalho */
+  }
+
+  header h1 {
+    font-size: 1.0em; /* Título bem menor para mobile */
+    word-break: break-word; /* Ajuda a evitar quebra de layout com palavras longas */
+  }
+
+  nav {
+    flex-direction: row-reverse; /* Botões empilhados verticalmente */
+    padding: 10px 0; /* Padding da navegação */
+    gap: 10px; /* Aumenta o espaço entre os botões empilhados */
+  }
+
+  nav .botao {
+    display: block; /* Garante que cada botão ocupe sua própria linha */
+    width: 30%; /* Ocupa 80% da largura para não ficar colado nas bordas */
+    margin: 0 auto; /* Centraliza o botão */
+    padding: 10px 15px; /* Ajusta o padding para um tamanho confortável */
+    font-size: 1em; /* Tamanho da fonte padrão para botões */
+  }
+
+  main {
+    padding: 10px; /* Padding mínimo em telas muito pequenas */
+    margin: 10px; /* Margem mínima para o main */
+  }
+
+  section h2 {
+    font-size: 1.4em; /* Títulos de seção menores ainda */
+    padding-left: 8px; /* Ajusta padding do detalhe lateral */
+    border-left-width: 3px; /* Borda lateral mais fina */
+  }
+
+  section h3 {
+    font-size: 1.2em; /* Subtítulos menores */
+  }
+
+  footer {
+    padding: 15px; /* Reduz o padding do rodapé */
+    font-size: 0.8em; /* Fonte menor no rodapé */
+  }
 }
